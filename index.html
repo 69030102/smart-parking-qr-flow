@@ -98,6 +98,12 @@
     padding:7px 12px; cursor:pointer; font-size:12px; font-weight:700; color:var(--charcoal);
   }
   .lang-toggle svg{ width:14px; height:14px; }
+
+  .staff-link{
+    display:block; text-align:center; font-size:12px; color:var(--midgray);
+    text-decoration:none; margin-top:14px; font-weight:500;
+  }
+  .staff-link:hover{ color:var(--charcoal); }
 </style>
 </head>
 <body>
@@ -151,7 +157,8 @@ const STR = {
     footnote: h => `ชั่วโมงแรกฟรี จากนั้นคิด ${CONFIG.CURRENCY}${h} ต่อชั่วโมง`,
     not_found_title: "ไม่พบข้อมูลบัตร",
     not_found_sub: "ลิงก์นี้ไม่ถูกต้องหรือหมดอายุ",
-    back_home: "กลับหน้าแรก"
+    back_home: "กลับหน้าแรก",
+    staff_link: "สำหรับเจ้าหน้าที่ (สแกนออก) →"
   },
   en: {
     home_badge: "Entry point",
@@ -167,7 +174,8 @@ const STR = {
     footnote: h => `First hour free, then ${CONFIG.CURRENCY}${h} per hour`,
     not_found_title: "Ticket not found",
     not_found_sub: "This link is invalid or expired.",
-    back_home: "Back to home"
+    back_home: "Back to home",
+    staff_link: "Staff exit scanner →"
   }
 };
 
@@ -234,6 +242,7 @@ function renderHome(view){
       <h1>${tr('home_title')}</h1>
       <p class="sub">${tr('home_sub')}</p>
       <div class="qr-wrap qr-pop" id="qrcode"></div>
+      <a class="staff-link" href="exit-scan.html">${tr('staff_link')}</a>
     </div>
   `;
   const url = buildUrl("/checkin", {});
